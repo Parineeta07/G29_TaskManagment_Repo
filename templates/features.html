@@ -1,0 +1,142 @@
+{% extends 'home.html' %}
+{% block styles %}
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background-color: #f5f7fa;
+        color: #333;
+    }
+
+    .container {
+        max-width: 1230px;
+        height: 1000px;
+        margin: auto;
+        padding: 20px;
+        text-align: center;
+        margin: 160px;
+        margin-bottom: 150px;
+    }
+
+    h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.5s ease-in-out forwards;
+            color: white;
+            margin-left: 100px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+    .features-container {
+        padding: 50px 20px;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .feature-item {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        text-align: center;
+        padding: 30px;
+        margin-right: 70px;
+    }
+
+    .feature-item:hover {
+        transform: translateY(-10px);
+    }
+
+    .feature-icon {
+        font-size: 2rem;
+        color: #022f1f;
+        margin-bottom: 15px;
+    }
+
+    .feature-item h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .feature-item p {
+        font-size: 1rem;
+        color: #666;
+    }
+
+    @media (max-width: 768px) {
+        .feature-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Features</h1>
+    <section id="features" class="features-container">
+        <h2 style="color: white; margin-right: 130px; margin-top: 70px; margin-bottom: 30px;">Everything You Need to Stay Organized</h2>
+        <p class="subheading" style="color: white; margin-bottom: 30px;">
+            Supercharge your productivity with powerful features designed for seamless task management.
+        </p>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>Task Scheduling</h3>
+                <p>Effortlessly plan, prioritize, and automate your tasks with recurring options.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-bell"></i></div>
+                <h3>Smart Reminders</h3>
+                <p>Stay on top of deadlines with AI-powered reminders tailored to your workflow.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-users"></i></div>
+                <h3>Team Collaboration</h3>
+                <p>Share tasks, assign roles, and collaborate in real time with your team.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <h3>Cloud Sync</h3>
+                <p>Access your tasks anytime, anywhere with seamless cloud synchronization.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Progress Tracking</h3>
+                <p>Visualize your achievements with interactive charts and performance reports.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+                <h3>Custom Alerts</h3>
+                <p>Set up personalized notifications to keep your workflow smooth and efficient.</p>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

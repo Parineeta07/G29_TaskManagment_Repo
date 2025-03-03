@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlayTask</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="shortcut icon" href="/static/images/S.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    {% block styles %}{% endblock %}
+      
+    
+
+</head>
+<body >
+  
+    <header style="display: flex;padding: 10px;position: fixed; top: 0; left: 0;width: 100%; padding: 20px 0; text-align: center; z-index: 1000;background-color: white;">
+        <div ><img style="height: 60px;width: 60px;border-radius: 10px;margin-left: 90px;" src="/static/images/Slay Task.png" alt="logo"></div>
+        <div style="margin-left: 10px;color: black;"><h3>SlayTask</h3></div>
+        <div style="margin-left: 300px;justify-content: space-between;color: black; "><h3><a style="text-decoration: none;color: black;" href="{{url_for('features')}}">Features</a></h3></div>
+        <div style="margin-left: 50px;color: black;"><h3>Made For</h3></div>
+        <div class="re"><h3><a href="{{url_for('resources')}}">Resources</a></h3></div>
+        <div class="pr"><h3> <a href="{{url_for('pricing')}}">Pricing</a></h3></div>
+        <div class="lo"><h3 ><a href="{{url_for('login')}}">LogIn</a></h3></div>
+        <div ><h3 ><a href="{{url_for('signup')}}" style="color: black;font-style: 0; "><button style=" background: linear-gradient(45deg, #52888a, #032041);" class="signup-button">Sign Up</button>
+        </a></h3></div>
+        <div class="log"><h3 ><a href="{{url_for('logout')}}">Logout</a></h3></div>
+        
+
+      </header>
+
+    
+        
+    
+    {% block content %}
+     <!-- Flash Messages Section -->
+     <div class="body">
+      {% with messages = get_flashed_messages(with_categories=True) %}
+          {% if messages %}
+              <div class="flash-messages">
+                  {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}" 
+                  style="background-color: #17a2b8; 
+                         color: white; 
+                         margin: 30px auto; 
+                         padding: 15px 20px; 
+                         border-radius: 8px; 
+                         width: 50%; 
+                         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+                         font-weight: bold; 
+                         text-align: center; 
+                         transition: all 0.3s ease-in-out;
+                         margin-top: 100px;
+                         margin-left: 100px;">
+                 {{ message }}
+             </div>
+             
+                  {% endfor %}
+              </div>
+          {% endif %}
+      {% endwith %}
+  </div>
+     
+    
+    <main style="margin-top: 30px;">
+        <div style="background-color: black;" class="container" >
+            <div class="text-section">
+                <h1>Organize, Track, <br>and Succeed</h1>
+                <p>"Master your chaos and bring balance to your work and life—once and for all".</p>
+                <div class="cta-buttons">
+                    <a href="{{ url_for('signup') }}" class="btn primary">Get Started for Free</a>
+                    <a href="#features" class="btn secondary">Explore Features</a>
+                  </div>
+            </div>
+            
+            <div class="hero-image">
+              <img
+                src="/static/images/WhatsApp Image 2025-02-21 at 1.40.59 PM.jpeg"
+                alt="TaskMaster Dashboard Preview"
+              />
+            </div>
+        </div>
+        
+        <script>
+            gsap.to(".carousel", { 
+                x: "-50%", 
+                duration: 30, 
+                ease: "linear", 
+                repeat: -1 
+            });
+        </script>
+
+<section id="features" class="features">
+    <div class="features-container">
+      <h2>Everything You Need to Stay Organized</h2>
+      <p class="subheading">
+        Supercharge your productivity with powerful features designed for
+        seamless task management.
+      </p>
+
+      <div class="feature-grid">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <h3>Task Scheduling</h3>
+          <p>
+            Effortlessly plan, prioritize, and automate your tasks with
+            recurring options.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-bell"></i></div>
+          <h3>Smart Reminders</h3>
+          <p>
+            Stay on top of deadlines with AI-powered reminders tailored to
+            your workflow.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-users"></i></div>
+          <h3>Team Collaboration</h3>
+          <p>
+            Share tasks, assign roles, and collaborate in real time with
+            your team.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-cloud-upload-alt"></i>
+          </div>
+          <h3>Cloud Sync</h3>
+          <p>
+            Access your tasks anytime, anywhere with seamless cloud
+            synchronization.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Progress Tracking</h3>
+          <p>
+            Visualize your achievements with interactive charts and
+            performance reports.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+          <h3>Custom Alerts</h3>
+          <p>
+            Set up personalized notifications to keep your workflow smooth
+            and efficient.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="how-it-works">
+    <h2>How Slay Task Works</h2>
+    <p class="subheading">
+      Simple steps to boost your productivity and stay organized.
+    </p>
+    <div class="steps-container">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Create Your Account</h3>
+        <p>
+          Sign up in seconds and customize your workspace to fit your needs.
+        </p>
+        <div class="step-icon">
+          <i class="fas fa-user-plus"></i>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Add Your Tasks</h3>
+        <p>
+          Quickly input tasks, set deadlines, and organize them into
+          projects.
+        </p>
+        <div class="step-icon">
+          <i class="fas fa-tasks"></i>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Stay Productive</h3>
+        <p>
+          Track progress, collaborate with your team, and complete tasks
+          efficiently.
+        </p>
+        <div class="step-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="testimonials" class="testimonials">
+    <h2>What Our Users Say</h2>
+    <p class="subheading">
+      Hear from our satisfied users who have transformed their productivity
+      with TaskMaster.
+    </p>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="testimonial-header">
+          <img src="/static/images/sloth2.jpg" alt="Sarah Johnson" />
+          <div class="testimonial-info">
+            <h4>Sarah Johnson</h4>
+            <span>Freelance Designer</span>
+          </div>
+        </div>
+        <p>
+          "TaskMaster has transformed how I manage my daily tasks. Highly
+          recommended!"
+        </p>
+        <div class="testimonial-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-header">
+          <img src="/static/images/sloth1.avif" alt="Mike Stevens" />
+          <div class="testimonial-info">
+            <h4>Mike Stevens</h4>
+            <span>Project Manager</span>
+          </div>
+        </div>
+        <p>
+          "Perfect for our team collaboration. We've increased productivity
+          by 40%."
+        </p>
+        <div class="testimonial-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+
+ <!-- Highlight Section -->
+ <section class="highlight-section">
+  <div class="highlight">
+      <h4>“Effortless, direct, and incredibly powerful.”</h4>
+  </div>
+  <div class="highlight">
+      <h4>“Your ultimate to-do list app, redefined.”</h4>
+  </div>
+  <div class="highlight">
+      <h4>“Simply out of this world.”</h4>
+  </div>
+</section>
+
+
+
+</main>
+    
+    {% endblock %}
+
+
+    <footer class="footer">
+      <div class="footer-container">
+          <!-- Branding & Description -->
+          <div class="footer-brand">
+              <h2>Slay Task, Inc.</h2>
+              <p>Innovating productivity solutions for businesses and individuals worldwide.</p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-links">
+              <h3>Company</h3>
+              <ul>
+                  <li><a href="{{url_for('aboutFunction')}}">About Us</a></li>
+                  <li><a href="/careers">Careers</a></li>
+                  <li><a href="/blog">Blog</a></li>
+                  <li><a href="/contact">Contact Us</a></li>
+              </ul>
+          </div>
+
+          <!-- Legal -->
+          <div class="footer-links">
+              <h3>Legal</h3>
+              <ul>
+                  <li><a href="/privacy">Privacy Policy</a></li>
+                  <li><a href="/terms">Terms of Service</a></li>
+                  <li><a href="/security">Security</a></li>
+                  <li><a href="/compliance">Compliance</a></li>
+              </ul>
+          </div>
+
+          <!-- Social Media & CTA -->
+          <div class="footer-social">
+              <h3>Follow Us</h3>
+              <div class="social-icons">
+                  <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                  <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+              </div>
+              <a href="/signup" class="signup-btn">Get Started</a>
+          </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-bottom">
+          <p>&copy; <span id="current-year"></span> Slay Task, Inc. All rights reserved.</p>
+      </div>
+  </footer>
+
+  <script>
+      // Auto-update current year
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</html>

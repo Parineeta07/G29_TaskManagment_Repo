@@ -1,0 +1,233 @@
+{% extends 'home.html' %}
+{% block styles %}
+    <style>
+        /* Pricing Section */
+  
+  .pricing {
+    padding: 60px 20px;
+    background: #f9f9f9;
+    text-align: center;
+    margin: 30px;
+  }
+  
+  .pricing h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #032c0d;
+  }
+  
+  .pricing .subheading {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 40px;
+  }
+  
+  .pricing-plans {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .plan {
+    background: #fff;
+    border: 2px solid rgb(4, 43, 35);
+    border-radius: 12px;
+    padding: 30px;
+    width: 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+  
+  .plan:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  .plan h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .plan p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  
+  .plan .price {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 20px;
+  }
+  
+  .plan .price span {
+    font-size: 16px;
+    color: #777;
+    font-weight: normal;
+  }
+  
+  .plan .features-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+  
+  .plan .features-list li {
+    margin: 12px 0;
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    align-items: center;
+  }
+  
+  .plan .features-list i {
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+  .plan .features-list .fa-check {
+    color: #0060bf;
+    /* Green for checkmarks */
+  }
+  
+  .plan .features-list .fa-times {
+    color: #ff4444;
+    /* Red for missing features */
+  }
+  
+  .plan .btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    text-align: center;
+    transition: background 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .plan .btn.primary {
+    background: #063b18;
+    color: #fff;
+  }
+  
+  .plan .btn.primary:hover {
+    background: #042c17;
+  }
+  
+  /* Premium Plan Styling */
+  .plan.premium {
+    border: 2px solid #033b37;
+  }
+  
+  .plan.premium .popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #024027;
+    color: #fff;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  /* Business Plan Styling */
+  .plan.business {
+    border: 2px solid #06381d;
+  }
+  
+  .plan.business .btn.primary {
+    background: #032c1c;
+  }
+  
+  .plan.business .btn.primary:hover {
+    background: #024225;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .pricing-plans {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .plan {
+      width: 100%;
+      max-width: 350px;
+    }
+  }
+  
+    </style>
+{% endblock %}
+{% block content %}
+<section id="pricing" class="pricing">
+<h2>Flexible Plans for Everyone</h2>
+<p class="subheading">
+  Choose the plan that fits your needs and boost your productivity
+  today.
+</p>
+<div class="pricing-plans">
+  <div class="plan">
+    <h3>Free Plan</h3>
+    <p>Perfect for individuals getting started with task management.</p>
+    <span class="price">₹0<span>/month</span></span>
+    <ul class="features-list">
+      <li><i class="fas fa-check"></i> Up to 5 projects</li>
+      <li><i class="fas fa-check"></i> Basic task scheduling</li>
+      <li><i class="fas fa-check"></i> Reminders for deadlines</li>
+      <li><i class="fas fa-check"></i> Basic progress tracking</li>
+      <li><i class="fas fa-check"></i> Email notifications</li>
+      <li><i class="fas fa-times"></i> No collaboration features</li>
+      <li><i class="fas fa-times"></i> No cloud sync</li>
+    </ul>
+    <a href="{{ url_for('signup') }}" class="btn primary">Get Started</a>
+  </div>
+
+  <div class="plan premium">
+    <div class="popular-badge">Most Popular</div>
+    <h3>Premium Plan</h3>
+    <p>Advanced features for teams and professionals.</p>
+    <span class="price">₹149<span>/month</span></span>
+    <ul class="features-list">
+      <li><i class="fas fa-check"></i> Unlimited projects</li>
+      <li><i class="fas fa-check"></i> Advanced task scheduling</li>
+      <li><i class="fas fa-check"></i> Real-time collaboration</li>
+      <li><i class="fas fa-check"></i> Cloud sync across devices</li>
+      <li><i class="fas fa-check"></i> Priority support</li>
+      <li><i class="fas fa-check"></i> Customizable notifications</li>
+      <li><i class="fas fa-check"></i> Task dependencies</li>
+      <li><i class="fas fa-check"></i> Advanced progress tracking</li>
+    </ul>
+    <a href="{{ url_for('signup') }}" class="btn primary">Upgrade Now</a>
+  </div>
+
+  <div class="plan business">
+    <h3>Business Plan</h3>
+    <p>For teams and organizations needing advanced collaboration.</p>
+    <span class="price">₹399<span>/month</span></span>
+    <ul class="features-list">
+      <li><i class="fas fa-check"></i> Unlimited projects</li>
+      <li><i class="fas fa-check"></i> Advanced analytics</li>
+      <li><i class="fas fa-check"></i> Team collaboration tools</li>
+      <li><i class="fas fa-check"></i> Dedicated account manager</li>
+      <li><i class="fas fa-check"></i> 24/7 premium support</li>
+      <li><i class="fas fa-check"></i> Custom integrations</li>
+      <li><i class="fas fa-check"></i> Advanced security features</li>
+      <li><i class="fas fa-check"></i> Workflow automation</li>
+    </ul>
+    <a href="{{ url_for('signup') }}" class="btn primary">Contact Sales</a>
+  </div>
+</div>
+</section>
+{% endblock %}
